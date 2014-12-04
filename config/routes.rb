@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'objects#index'
+  root to: 'xobjects#index'
 
   # Solving reserved word Object issue,
   # maybe there are better ways of doing it...
