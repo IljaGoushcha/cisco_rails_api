@@ -1,6 +1,7 @@
 class XobjectsController < ApplicationController
 
   def index
+    # this logic could be performed in xobject.rb
     @xobjects = Xobject.all
     @xobjects_formated = @xobjects.map do |xobject|
       {url: "http://localhost:3000/objects/#{xobject[:uid]}"}
@@ -14,7 +15,7 @@ class XobjectsController < ApplicationController
     if @xobject
       render json: @xobject, only: [:uid, :firstName, :lastName, :dob, :dod], status: :created, location: @xobject
     else
-      render json: @xobject.errors, status: :unprocessable_entity
+      render json: {verb: "GET", url: "http://localhost:3000/objects/#{params[:id]}", message: "uid does not exist"} # @xobject.errors status: :unprocessable_entity
     end
   end
 
@@ -24,7 +25,7 @@ class XobjectsController < ApplicationController
     if @xobject.save
       render json: @xobject, only: [:uid, :firstName, :lastName, :dob, :dod], status: :created, location: @xobject
     else
-      render json: @xobject.errors, status: :unprocessable_entity
+      render json: {verb: "POST", url: "http://localhost:3000/objects/", message: "Not a JSON object"} #@xobject.errors, status: :unprocessable_entity
     end
   end
 
