@@ -9,7 +9,7 @@ class XobjectsController < ApplicationController
     if @xobject
       render json: @xobject, except: :id, status: :created, location: @xobject
     else
-      render json: {verb: "GET", url: "http://localhost:3000/objects/#{params[:id]}", message: "uid does not exist"}
+      render json: {verb: "GET", url: "https://cisco-rails-api.herokuapp.com/objects/#{params[:id]}", message: "uid does not exist"}
     end
   end
 
@@ -19,7 +19,7 @@ class XobjectsController < ApplicationController
     if @xobject.save
       render json: @xobject, except: :id, status: :created, location: @xobject
     else
-      render json: {verb: "POST", url: "http://localhost:3000/objects/", message: "Not a JSON object"}
+      render json: {verb: "POST", url: "https://cisco-rails-api.herokuapp.com/objects/", message: "Not a JSON object"}
     end
   end
 
