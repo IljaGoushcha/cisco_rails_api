@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # delete 'xobjects/:id' => 'xobjects#destroy'
+  root to: 'objects#index'
 
-  # solving reserved word Object issue
-  # maybe there are better ways of doing it
+  # Solving reserved word Object issue,
+  # maybe there are better ways of doing it...
   resources :xobjects, path: 'objects'
 
   # resources :xobjects
