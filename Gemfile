@@ -5,8 +5,11 @@ gem 'rails', '4.2.0.beta2'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
+# need to add this gem due to recent upgrade to rails
+# http://stackoverflow.com/questions/27139007/cant-migrate-database-after-scaffold-section-2-2-ruby-on-rails-tutorial-michae
+gem 'arel', '6.0.0.beta2'
 
+gem 'spring', :group => :development
 
 gem 'pg'
 
