@@ -2,7 +2,11 @@ class XobjectsController < ApplicationController
 
   def index
     @xobjects = Xobject.all
-    render json: @xobjects, only: [:uid, :firstName, :lastName, :dob, :dod]
+    @xobjects_formated = @xobjects.map do |xobject|
+      {url: "http://localhost:3000/objects/#{xobject[:uid]}"}
+    end
+    render json: @xobjects_formated
+    # render json: @xobjects, only: [:uid, :firstName, :lastName, :dob, :dod]
   end
 
   def show
