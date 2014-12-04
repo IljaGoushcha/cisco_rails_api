@@ -9,7 +9,7 @@ class Xobject < ActiveRecord::Base
   def generate_uid
     begin
       # .uuid or .hex?
-      self.uid = SecureRandom.uuid
+      self.uid = SecureRandom.uuid.gsub(/[-]/, '')
     end while self.class.exists?(uid: self.uid)
   end
 

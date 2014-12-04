@@ -6,41 +6,41 @@ class XobjectsController < ApplicationController
   end
 
   def show
-    @object = Object.find(params[:uid])
-    if @object
-      render json: @object, status: :created, location: @object
+    @xobject = Xobject.find(params[:uid])
+    if @xobject
+      render json: @xobject, status: :created, location: @xobject
     else
-      render json: @object.errors, status: :unprocessable_entity
+      render json: @xobject.errors, status: :unprocessable_entity
     end
   end
 
   def create
-    @object = Object.new(allowed_params)
+    @xobject = Xobject.new(allowed_params)
 
-    if @object.save
-      render json: @object, status: :created, location: @object
+    if @xobject.save
+      render json: @xobject, status: :created, location: @xobject
     else
-      render json: @object.errors, status: :unprocessable_entity
+      render json: @xobject.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    @object = Object.find(params[:uid])
+    @xobject = Xobject.find(params[:uid])
 
-    if @object.update(allowed_params)
-      render json: @object, status: :created, location: @object
+    if @xobject.update(allowed_params)
+      render json: @xobject, status: :created, location: @xobject
     else
-      render json: @object.errors, status: :unprocessable_entity
+      render json: @xobject.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @object = Object.find(params[:uid])
+    @xobject = Xobject.find(params[:uid])
 
-    if @object.destroy
-      render json: @object, status: :created, location: @object
+    if @xobject.destroy
+      render json: @xobject, status: :created, location: @xobject
     else
-      render json: @object.errors, status: :unprocessable_entity
+      render json: @xobject.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,7 +49,7 @@ class XobjectsController < ApplicationController
 
   def allowed_params
     # I wonder what happens with timestamp fields?
-    params.require(:object).permit(:uid, :firstName, :lastName, :dob, :dod)
+    params.require(:xobject).permit(:uid, :firstName, :lastName, :dob, :dod)
   end
 
 end

@@ -1,3 +1,6 @@
+# I would use first_name instaed of firstName, i think it is a convention
+# in ruby, snake-case
+
 class CreateXobjects < ActiveRecord::Migration
   def change
     create_table :xobjects do |t|
