@@ -4,11 +4,11 @@ class Xobject < ActiveRecord::Base
   before_create :generate_uid
 
   private
-
-  # I am not sure if I am generating UID or UUID
+  # I am not sure if I am generating UID or UUID,
+  # or is there even a difference between the two?
   def generate_uid
     begin
-      # .uuid or .hex?
+      # .uuid or .hex? both seem to do the same job
       self.uid = SecureRandom.uuid.gsub(/[-]/, '')
     end while self.class.exists?(uid: self.uid)
   end
