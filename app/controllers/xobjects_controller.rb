@@ -6,7 +6,7 @@ class XobjectsController < ApplicationController
   end
 
   def show
-    @xobject = Xobject.find(params[:uid])
+    @xobject = Xobject.find_by_uid(params[:id]) #@xobject = Xobject.find(params[:id])
     if @xobject
       render json: @xobject, status: :created, location: @xobject
     else
@@ -25,7 +25,7 @@ class XobjectsController < ApplicationController
   end
 
   def update
-    @xobject = Xobject.find(params[:uid])
+    @xobject = Xobject.find_by_uid(params[:id])
 
     if @xobject.update(allowed_params)
       render json: @xobject, status: :created, location: @xobject
@@ -35,7 +35,7 @@ class XobjectsController < ApplicationController
   end
 
   def destroy
-    @xobject = Xobject.find(params[:uid])
+    @xobject = Xobject.find_by_uid(params[:id])
 
     if @xobject.destroy
       render json: @xobject, status: :created, location: @xobject
