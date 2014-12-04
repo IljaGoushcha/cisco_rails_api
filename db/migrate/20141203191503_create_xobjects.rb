@@ -4,7 +4,7 @@
 class CreateXobjects < ActiveRecord::Migration
   def change
     create_table :xobjects do |t|
-      t.string :uid, unique: true, null: false, index: true
+      t.string :uid, unique: true, null: false, index: true, primary_key: true
       t.string :firstName
       t.string :lastName
       t.date :dob, null: false

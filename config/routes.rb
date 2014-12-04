@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :xobjects
+  # delete 'xobjects/:id' => 'xobjects#destroy'
+
+  # solving reserved word Object issue
+  # maybe there are better ways of doing it
+  resources :xobjects, path: 'objects'
+
+  # resources :xobjects
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
