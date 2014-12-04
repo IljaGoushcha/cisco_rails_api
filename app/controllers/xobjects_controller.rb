@@ -1,8 +1,8 @@
-class ObjectsController < ApplicationController
+class XobjectsController < ApplicationController
 
   def index
-    @objects = Object.all
-    render json: @objects
+    @xobjects = Xobject.all
+    render json: @xobjects
   end
 
   def show

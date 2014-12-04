@@ -16,11 +16,14 @@ ActiveRecord::Schema.define(version: 20141203191503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "objects", force: true do |t|
+  create_table "xobjects", force: true do |t|
+    t.string "uid",       null: false
     t.string "firstName"
     t.string "lastName"
-    t.date   "dob"
+    t.date   "dob",       null: false
     t.string "dod"
   end
+
+  add_index "xobjects", ["uid"], name: "index_xobjects_on_uid", using: :btree
 
 end

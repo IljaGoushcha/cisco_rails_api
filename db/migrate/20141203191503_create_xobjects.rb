@@ -1,6 +1,6 @@
-class CreateObjects < ActiveRecord::Migration
+class CreateXobjects < ActiveRecord::Migration
   def change
-    create_table :objects do |t|
+    create_table :xobjects do |t|
       t.string :uid, unique: true, null: false, index: true
       t.string :firstName
       t.string :lastName

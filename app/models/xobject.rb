@@ -1,6 +1,6 @@
 # Object might be less than ideal name for a Class
 # rails g model actually refused to generate a model called object (reserved word)
-class Object < ActiveRecord::Base
+class Xobject < ActiveRecord::Base
   before_create :generate_uid
 
   private
