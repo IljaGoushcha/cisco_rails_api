@@ -3,6 +3,16 @@
 class Xobject < ActiveRecord::Base
   before_create :generate_uid
 
+  def self.generate_object_urls
+    xobjects = Xobject.all
+
+    xobjects_formated = xobjects.map do |xobject|
+      {url: "http://localhost:3000/objects/#{xobject[:uid]}"}
+    end
+
+    return xobjects_formated
+  end
+
   private
   # I am not sure if I am generating UID or UUID,
   # or is there even a difference between the two?
